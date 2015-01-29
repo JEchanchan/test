@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.yunlu.model.CrsClass" table="y_crs_class" >
+        <id name="id" type="integer">
+            <column name="id" />
+            <generator class="increment" />
+        </id>
+        <property name="crsId" type="integer">
+            <column name="crs_id" not-null="true">
+                <comment>课程ID</comment>
+            </column>
+        </property>
+        <property name="clsId" type="integer">
+            <column name="cls_id" not-null="true">
+                <comment>班级ID</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

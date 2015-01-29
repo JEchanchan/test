@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<!-- 课程团队 -->
+<hibernate-mapping>
+    <class name="com.yunlu.model.Team" table="y_crs_team" >
+        <id name="id" type="integer">
+            <column name="id" />
+            <generator class="increment" />
+        </id>
+        <property name="crsId" type="integer">
+            <column name="crs_id" not-null="true">
+                <comment>课程ID</comment>
+            </column>
+        </property>
+        <property name="inviterId" type="integer">
+            <column name="inviter_id" not-null="true">
+                <comment>邀请人ID</comment>
+            </column>
+        </property>
+        <property name="teamUsrId" type="integer">
+            <column name="team_usr_id" not-null="true">
+                <comment>团队成员（被邀请人）ID</comment>
+            </column>
+        </property>
+        <property name="teamDictId" type="integer">
+            <column name="team_dict_id" length="11">
+                <comment>团队角色ID</comment>
+            </column>
+        </property>
+        <property name="shortComments" type="string">
+            <column name="short_comments" length="50">
+                <comment>（注释信息）简介，20字以内</comment>
+            </column>
+        </property>
+        <property name="comments" type="string">
+            <column name="comments" length="1000">
+                <comment>（详细介绍）团队成员简介</comment>
+            </column>
+        </property>
+        <property name="sortIndex" type="integer">
+            <column name="sort_index">
+                <comment>序号</comment>
+            </column>
+        </property>
+        <property name="operationTime" type="string">
+            <column name="operation_time" length="50" not-null="true">
+                <comment>操作时间</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<!-- 学习进度  -->
+<hibernate-mapping>
+    <class name="com.yunlu.model.LearnProgress" table="y_usr_crs_learnprogress" >
+        <id name="id" type="integer">
+            <column name="id" />
+            <generator class="increment" />
+        </id>
+        <property name="usrId" type="integer">
+            <column name="usr_id" not-null="true">
+                <comment>用户ID</comment>
+            </column>
+        </property>
+        <property name="crsId" type="integer">
+            <column name="crs_id" not-null="true">
+                <comment>课程ID</comment>
+            </column>
+        </property>
+        <property name="secId" type="integer">
+            <column name="sec_id" not-null="true">
+                <comment>课程小节ID</comment>
+            </column>
+        </property>
+        <property name="cptId" type="integer">
+            <column name="cpt_id" not-null="true">
+                <comment>组件ID</comment>
+            </column>
+        </property>
+        <property name="cmptType" type="integer">
+            <column name="cmpt_type" not-null="true">
+                <comment>组件类型（视频：0；习题：1；文本：2）</comment>
+            </column>
+        </property>
+        <property name="persent" type="string">
+            <column name="persent" length="50">
+                <comment>观看视频进度：百分比</comment>
+            </column>
+        </property>
+        <property name="isFinished" type="integer">
+            <column name="is_finished">
+                <comment>组件完成次数</comment>
+            </column>
+        </property>
+        <property name="operationTime" type="string">
+            <column name="operation_time" length="50">
+                <comment>操作（创建、更新）时间</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>
