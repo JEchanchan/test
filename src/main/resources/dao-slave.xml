@@ -119,7 +119,7 @@
 				<prop key="javax.persistence.validation.mode">none</prop>
 				<prop key="hibernate.current_session_context_class">org.springframework.orm.hibernate4.SpringSessionContext
 				</prop>
-				<prop key="hibernate.default_catalog">yunlu</prop>
+				<prop key="hibernate.default_catalog">yunlu_new</prop>
 			</props>
 		</property>
 	</bean>
