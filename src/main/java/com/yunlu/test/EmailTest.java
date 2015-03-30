@@ -18,7 +18,7 @@ import org.apache.commons.mail.HtmlEmail;
  *            被邀请人姓名
  * @param emailContent
  *            邮件内容
- * @return Boolean
+ * @return Boolean  
  */
 
 public class EmailTest {
