@@ -18,7 +18,7 @@ import org.apache.commons.mail.HtmlEmail;
  *            被邀请人姓名
  * @param emailContent
  *            邮件内容
- * @return Boolean
+ * @return Boolean  
  */
 
 public class EmailTest {
@@ -36,6 +36,7 @@ public class EmailTest {
 			email.setHtmlMsg("邮件内容 email content"); // 设置邮件正文，此方法这里的样式可以显示出来
 			email.send();
 			System.err.println("邮件发送成功");
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
