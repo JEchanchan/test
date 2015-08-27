@@ -2,46 +2,239 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-
-	<groupId>com.yunlu</groupId>
+	<groupId>com.yunlu.test</groupId>
 	<artifactId>test</artifactId>
-	<version>1.0-dev</version>
-	<packaging>war</packaging>
-
+	<version>1.0-SNAPSHOT</version>
+	<packaging>jar</packaging>
 	<name>test</name>
-
 	<properties>
-		<!-- 文件拷贝时的编码 -->
+		<endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-		<!-- 编译时的编码 -->
-		<maven.compiler.encoding>UTF-8</maven.compiler.encoding>
+		<maven.compiler.source>1.7</maven.compiler.source>
+		<maven.compiler.target>1.7</maven.compiler.target>
+		<!-- spring版本号 -->
+		<spring.version>3.2.8.RELEASE</spring.version>
+		<!-- hibernate版本号 -->
+		<hibernate.version>4.2.4.Final</hibernate.version>
+		<!-- logback的版本 -->
+		<logback-ext-spring.version>0.1.1</logback-ext-spring.version>
+		<!-- junit 版本号 -->
+		<junit.version>4.11</junit.version>
+		<!-- mysql 连接驱动 版本号 -->
+		<mysql.version>5.1.25</mysql.version>
+		<!-- memcached 版本号 -->
+		<xmemcached.version>1.3.7</xmemcached.version>
+		<!-- poi 版本号 -->
+		<poi.version>3.9</poi.version>
+		<!-- itext 的版本号 -->
+		<itext.version>2.0.8</itext.version>
+		<!-- fcexporter_jdk1.5 的版本号 -->
+		<fcexporter.version>1.0</fcexporter.version>
+		<!-- sitemesh 的版本号 -->
+		<sitemesh.version>2.4.1</sitemesh.version>
+		<!-- jsch 的版本号 -->
+		<jsch.version>0.1.51</jsch.version>
+		<!-- servlet 的版本号 -->
+		<servlet.version>3.0.1</servlet.version>
+		<!-- jsp 的版本号 -->
+		<jsp.version>2.1</jsp.version>
+		<!-- jstl 的版本号 -->
+		<jstl.version>1.2</jstl.version>
+		<!-- velocity 的版本号 -->
+		<velocity.version>1.6.2</velocity.version>
+		<!-- fastjson 的版本号 -->
+		<fastjson.version>1.1.19</fastjson.version>
+		<!-- jackson 的版本号 用于spring 中 @ResponseBody -->
+		<jackson.version>1.8.5</jackson.version>
+		<!-- common-eamil 的版本号 -->
+		<common-email.version>1.2</common-email.version>
+		<!-- flyingsaucer.core-renderer 的版本号 -->
+		<flyingsaucer.version>8RC1</flyingsaucer.version>
+		<!-- common-fileupload 的版本号 -->
+		<common-fileupload.version>1.2.2</common-fileupload.version>
+		<!-- common-io 版本号 -->
+		<common-io.version>2.3</common-io.version>
 	</properties>
-
 	<dependencies>
+		<!--=======================central 仓库================= -->
+		<!-- spring核心包 -->
+		<!-- springframe start -->
+		<!-- Spring -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-jdbc</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-aop</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-aspects</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-orm</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<!-- aspectjweaver-1.7.2.jar -->
+		<dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjweaver</artifactId>
+			<version>1.7.2</version>
+		</dependency>
+		<!-- springframe end -->
+		<!-- hibernate start -->
+		<!-- hibernate-core-4.2.4.Final.jar -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<version>${hibernate.version}</version>
+		</dependency>
+		<!--hibernate-c3p0-4.3.6.Final.jar -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-c3p0</artifactId>
+			<version>4.3.6.Final</version>
+		</dependency>
+		<!-- hibernate-validator-4.2.0.Final.jar -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-validator</artifactId>
+			<version>4.2.0.Final</version>
+		</dependency>
+		<!-- hibernate end -->
+		<!--logback-ext-spring-0.1.1.jar -->
+		<dependency>
+			<groupId>org.logback-extensions</groupId>
+			<artifactId>logback-ext-spring</artifactId>
+			<version>${logback-ext-spring.version}</version>
+		</dependency>
+		<!-- junit-4.11.jar -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>${junit.version}</version>
+		</dependency>
+		<!-- mysql-connector-java-5.1.25.jar -->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>${mysql.version}</version>
+		</dependency>
+		<!--xmemcached-1.3.7.jar -->
+		<dependency>
+			<groupId>com.googlecode.xmemcached</groupId>
+			<artifactId>xmemcached</artifactId>
+			<version>${xmemcached.version}</version>
+		</dependency>
+		<!-- poi-ooxml-3.9-20121203.jar -->
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi-ooxml</artifactId>
+			<version>${poi.version}</version>
+		</dependency>
+		<!-- itext-2.0.8.jar -->
+		<dependency>
+			<groupId>com.lowagie</groupId>
+			<artifactId>itext</artifactId>
+			<version>${itext.version}</version>
+		</dependency>
+		<!-- flyingsaucer.core-renderer.jar -->
+		<dependency>
+			<groupId>de.huxhorn.lilith</groupId>
+			<artifactId>de.huxhorn.lilith.3rdparty.flyingsaucer.core-renderer</artifactId>
+			<version>${flyingsaucer.version}</version>
+		</dependency>
+		<!-- sitemesh-2.4.1.jar -->
+		<dependency>
+			<groupId>opensymphony</groupId>
+			<artifactId>sitemesh</artifactId>
+			<version>${sitemesh.version}</version>
+		</dependency>
+		<!--fcexporter_jdk1.5.jar -->
+		<dependency>
+			<groupId>fcexporter_jdk1.5</groupId>
+			<artifactId>fcexporter_jdk1.5</artifactId>
+			<version>${fcexporter.version}</version>
+		</dependency>
+		<!-- jsch-0.1.51.jar -->
+		<dependency>
+			<groupId>com.jcraft</groupId>
+			<artifactId>jsch</artifactId>
+			<version>${jsch.version}</version>
+		</dependency>
+		<!-- servlet -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>${servlet.version}</version>
+		</dependency>
+		<!-- jsp -->
+		<dependency>
+			<groupId>javax.servlet.jsp</groupId>
+			<artifactId>jsp-api</artifactId>
+			<version>${jsp.version}</version>
+		</dependency>
+		<!-- jstl.jar -->
+		<dependency>
+			<groupId>jstl</groupId>
+			<artifactId>jstl</artifactId>
+			<version>${jstl.version}</version>
+		</dependency>
+		<!-- velocity-1.6.2-dep.jar -->
+		<dependency>
+			<groupId>org.apache.velocity</groupId>
+			<artifactId>velocity</artifactId>
+			<version>${velocity.version}</version>
+		</dependency>
+		<!-- fastjson -->
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>fastjson</artifactId>
+			<version>${fastjson.version}</version>
+		</dependency>
+		<!-- common-email .jar -->
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-email</artifactId>
+			<version>${common-email.version}</version>
+		</dependency>
+		<!-- common-fileupload.jar -->
+		<dependency>
+			<groupId>commons-fileupload</groupId>
+			<artifactId>commons-fileupload</artifactId>
+			<version>${common-fileupload.version}</version>
+		</dependency>
+		<!-- jackjson.jar -->
+		<dependency>
+			<groupId>org.codehaus.jackson</groupId>
+			<artifactId>jackson-mapper-asl</artifactId>
+			<version>${jackson.version}</version>
+		</dependency>
+		<!-- common-io.jar -->
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>${common-io.version}</version>
+		</dependency>
 	</dependencies>
-
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.1</version>
-				<configuration>
-					<source>1.7</source>
-					<target>1.7</target>
-					<encoding>utf-8</encoding>
-				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-war-plugin</artifactId>
-				<version>2.3</version>
-				<configuration>
-					<encoding>utf-8</encoding>
-					<failOnMissingWebXml>false</failOnMissingWebXml>
-				</configuration>
-			</plugin>
-		</plugins>
-	</build>
 </project>
