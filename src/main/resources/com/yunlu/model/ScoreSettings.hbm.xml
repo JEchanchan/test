@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<!-- 课程分数设置 -->
+<hibernate-mapping>
+    <class name="com.yunlu.model.ScoreSettings" table="y_crs_score_settings" >
+        <id name="id" type="integer">
+            <column name="id" length="11"/>
+            <generator class="increment" />
+        </id>
+        <property name="crsId" type="integer">
+            <column name="crs_id" not-null="true"  length="11">
+                <comment>课程ID</comment>
+            </column>
+        </property>
+        <property name="passScore" type="integer">
+            <column name="pass_score"  length="11">
+                <comment>最低通过分数</comment>
+            </column>
+        </property>
+        <property name="totalScore" type="integer">
+            <column name="total_score"  length="11">
+                <comment>总分</comment>
+            </column>
+        </property>
+        <property name="videoPersent" type="string">
+            <column name="video_persent" length="50">
+                <comment>视频所占分数百分比</comment>
+            </column>
+        </property>
+        <property name="exercisePersent" type="string">
+            <column name="exercise_persent" length="50">
+                <comment>课后练习所占分数百分比</comment>
+            </column>
+        </property>
+        <property name="midexamPersent" type="string">
+            <column name="midexam_persent" length="50">
+                <comment>期中考试所占分数百分比</comment>
+            </column>
+        </property>
+        <property name="endexamPersent" type="string">
+            <column name="endexam_persent" length="50">
+                <comment>期末考试所占分数百分比</comment>
+            </column>
+        </property>
+        <property name="levelA" type="string">
+            <column name="level_a" length="50">
+                <comment>级别 A</comment>
+            </column>
+        </property>
+        <property name="levelB" type="string">
+            <column name="level_b" length="50">
+                <comment>级别 B</comment>
+            </column>
+        </property>
+        <property name="levelC" type="string">
+            <column name="level_c" length="50">
+                <comment>级别 C</comment>
+            </column>
+        </property>
+        <property name="levelD" type="string">
+            <column name="level_d" length="50">
+                <comment>级别 D</comment>
+            </column>
+        </property>
+        <property name="levelF" type="string">
+            <column name="level_f" length="50">
+                <comment>级别 F</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

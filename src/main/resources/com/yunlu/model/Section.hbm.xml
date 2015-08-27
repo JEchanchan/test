@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<!-- 课程节 -->
+<hibernate-mapping>
+	<class name="com.yunlu.model.Section" table="y_crs_chp_section"
+		>
+		<id name="id" type="integer">
+			<column name="id" />
+			<generator class="increment" />
+		</id>
+		<property name="chpId" type="integer">
+			<column name="chp_id" not-null="true">
+				<comment>课程章ID</comment>
+			</column>
+		</property>
+		<property name="name" type="string" />
+		<property name="scoreType" type="integer">
+			<column name="score_type" not-null="true">
+				<comment>习题评分类别（不计分：0；课后练习：1；期中考试：2；期末考试：3）</comment>
+			</column>
+		</property>
+		<property name="publishTime" type="string">
+			<column name="publish_time" length="50">
+				<comment>发布时间</comment>
+			</column>
+		</property>
+		<property name="sortIndex" type="integer">
+			<column name="sort_index" length="11">
+				<comment>小节序号</comment>
+			</column>
+		</property>
+		<property name="status" type="integer" />
+	</class>
+</hibernate-mapping>

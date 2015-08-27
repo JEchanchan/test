@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<!-- 学校 -->
+<hibernate-mapping>
+    <class name="com.yunlu.model.FocusImg" table="y_focus_img" >
+        <id name="id" type="integer">
+            <column name="id" />
+            <generator class="increment" />
+        </id>
+        <property name="targetId" type="integer">
+            <column name="target_id" length="11" not-null="true">
+                <comment>关联表id</comment>
+            </column>
+        </property>
+        <property name="url" type="string">
+            <column name="url">
+                <comment>焦点图路径</comment>
+            </column>
+        </property>
+        <property name="focusDesc" type="string">
+            <column name="focus_desc">
+                <comment>焦点图描述</comment>
+            </column>
+        </property>
+        <property name="urlLink" type="string">
+            <column name="url_link">
+                <comment>图片链接路径</comment>
+            </column>
+        </property>
+        <property name="sortIndex" type="integer">
+            <column name="sort_index">
+                <comment>排序</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>
